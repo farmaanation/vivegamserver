@@ -19,7 +19,7 @@ router.get("/", getInvestors);
 // GET Single Investor
 // router.get("/:id", getInvestor);
 
-router.get("/single", getInvestor);
+router.get("/:email", getInvestor);
 
 // POST a new Investor
 router.post("/", createInvestor);
