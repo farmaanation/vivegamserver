@@ -11,12 +11,24 @@ const getInvestors = async (req, res) => {
 };
 
 // GET a single investor
+// const getInvestor = async (req, res) => {
+//   // const { id } = req.params;
+
+//   const { email: email } = req.body;
+
+//   const investor = await Investor.find({ CustomerEmail: email });
+
+//   if (!investor) {
+//     return res.status(404).json({ error: "Investor Not Found" });
+//   }
+
+//   res.status(200).json(investor);
+// };
+
 const getInvestor = async (req, res) => {
-  // const { id } = req.params;
+  const { email } = req.params;
 
-  const { email: email } = req.body;
-
-  const investor = await Investor.find({ CustomerEmail: email });
+  const investor = await Investor.findOne({ CustomerEmail: email });
 
   if (!investor) {
     return res.status(404).json({ error: "Investor Not Found" });
